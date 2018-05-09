@@ -1,0 +1,7 @@
+
+
+# Security Group List
+
+|GroupId|GroupName|
+|---|---|{% for sg in SecurityGroups %}
+|{{ sg.GroupId }}|{{ sg.GroupName }}|{% endfor %}

@@ -1,0 +1,27 @@
+
+# List of Instances
+
+{% for rvs in Reservations %}{% for instance in rvs.Instances %}{% for tag in instance.get("Tags") %}{% if tag.get("Key") == "Name" %}
+- {{ tag.Value }}{% endif %}{% endfor %}{% endfor %}{% endfor %}
+
+
+{% for rvs in Reservations %}{% for instance in rvs.Instances %}{% for tag in instance.get("Tags") %}{% if tag.get("Key") == "Name" %}
+# {{ tag.Value }}
+
+|項目|値|
+|---|---|
+|Name|{{ tag.Value }}|
+|InstanceId|{{ instance.InstanceId }}|
+|VpcId|{{ instance.VpcId }}|
+|PrivateIpAddress|{{ instance.PrivateIpAddress }}|
+|AvailabilityZone|{{ instance.Placement.AvailabilityZone }}|
+|KeyName|{{ instance.KeyName }}|
+|InstanceType|{{ instance.InstanceType }}|
+
+## Security Group
+
+|GroupId|GroupName|
+|---|---|{%for sg in instance.get("SecurityGroups") %}
+|{{ sg.GroupId }}|{{ sg.GroupName }}|
+{% endfor %}
+{% endif %}{% endfor %}{% endfor %}{% endfor %}

@@ -1,0 +1,14 @@
+
+# VPC List
+{% for vpc in Vpcs %}{% for tag in vpc.Tags %}
+{% if tag.Key == "Name" %}- {{tag.Value}} {% endif %}{% endfor %}{% endfor %}
+
+{% for vpc in Vpcs %}{% for tag in vpc.Tags %}
+{% if tag.Key == "Name" %}# {{ tag.Value }}{% endif %}
+
+|値|項目|
+|---|---|
+|VpcId|{{ vpc.VpcId }}|
+|CidrBlock|{{ vpc.CidrBlock }}|
+
+{% endfor %}{% endfor %}

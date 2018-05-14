@@ -1,0 +1,12 @@
+
+# List of Loadbalancers(v2)
+{% for tg in TargetGroups %}
+- {{ tg.get('TargetGroupName') }}{% endfor %}
+{% for tg in TargetGroups %}
+# {{ tg.get('TargetGroupName') }}
+
+|key|value|
+|---|---|{% for k, v in tg.items() %}
+|{{ k }}|{{ v }}|{% endfor %}
+
+{% endfor %}

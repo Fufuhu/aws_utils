@@ -1,0 +1,6 @@
+
+# List of subscriptions
+
+|TopicArn|Protocol|Endpoint|
+|---|---|---|{% for ss in Subscriptions %}
+|{{ ss.TopicArn }}|{{ ss.Protocol }}|{{ ss.Endpoint }}|{% endfor %}

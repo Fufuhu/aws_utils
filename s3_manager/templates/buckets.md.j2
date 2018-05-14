@@ -1,0 +1,13 @@
+
+# List of Buckets
+{% for policy in Policies %}
+- {{policy.Name}}{% endfor %}
+
+# Bucket policies
+{% for policy in Policies %}
+## {{policy.Name}}
+
+```
+{{ policy.Policy }}
+```
+{% endfor %}
